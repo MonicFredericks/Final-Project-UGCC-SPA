@@ -1,0 +1,180 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-bottom: 1px solid #eaeaea;
+  background: transparent;
+  position: relative;
+  isolation: isolate;
+  --nav-blur: .2rem;
+  z-index: 100;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images-2.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(var(--nav-blur));
+  transform: scale(1.06);
+  z-index: -2;
+}
+
+.navbar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.brandRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brandSub {
+  display: inline-flex;
+  text-align: center;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.brandText {
+  font-weight: 800;
+  font-size: 1.7rem;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  line-height: 1.1;
+  text-align: left;       
+}
+
+.auth {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.linksRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  border: 1px solid #e2e2e2;
+  background: #f0f0f0;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 120ms ease, transform 80ms ease;
+  cursor: pointer;
+}
+.pill:hover { background: #e7e7e7; }
+.pill:active { transform: translateY(1px); }
+.pill:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+.linksRow .pill.link:first-child { margin-right: 6px; }
+.dropdown {
+  position: relative;
+}
+
+.dropdownTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.dropdownTrigger .chev {
+  transition: transform 120ms ease;
+}
+.dropdownTrigger[aria-expanded="true"] .chev {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 200px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  z-index: 20;
+  backdrop-filter: saturate(120%); 
+}
+
+.menuItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menuItem:hover,
+.menuItem:focus-visible {
+  background: #f3f4f6;
+  outline: none;
+}
+
+.linksRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.pill.action { 
+   background: #e9ecef; 
+}
+.pill.link { 
+   background: #f0f0f0; 
+}
+
+.linksRow {
+   align-items: center; 
+}
+
+.noCaret .chev {
+   display: none; 
+}
+
+@media (max-width: 520px) {
+  .brandText { line-height: 1.05; }
+  .logo { width: 72px; height: 72px; }
+  .auth { gap: 8px; }
+}
